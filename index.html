@@ -79,6 +79,23 @@
       .receipt-row .value { text-align: right; }
       .receipt-note-bottom { margin: 74px 0 0; color: #8a8a8a; font-size: 17px; line-height: 21px; text-align: center; }
       .receipt-close { position: fixed; top: 10px; left: 8px; z-index: 21; width: 28px; height: 36px; border: 0; background: transparent; color: #9d9d9d; font-size: 28px; line-height: 30px; cursor: pointer; }
+      @media (max-width: 594px) {
+        .receipt-screen { padding: 6.72vw 5.71vw; }
+        .receipt-sheet { min-height: 155.46vw; }
+        .receipt-sheet::before, .receipt-sheet::after { height: 1.34vw; background-size: 1.68vw 1.34vw; }
+        .receipt-logo { height: 28.74vw; padding: 8.91vw 5.04vw 0; }
+        .receipt-logo-mark { width: 12.94vw; height: 12.94vw; }
+        .receipt-logo-mark svg { width: 10.92vw; height: 10.92vw; }
+        .receipt-status { height: 24.2vw; padding: 4.2vw 5.04vw; }
+        .receipt-status-title { font-size: 4.2vw; line-height: 5.21vw; }
+        .receipt-status-amount { margin-top: .67vw; font-size: 8.57vw; line-height: 9.92vw; letter-spacing: .17vw; }
+        .receipt-info { padding: 7.06vw 5.04vw 6.05vw; }
+        .receipt-seller { min-height: 10.92vw; margin-bottom: 5.38vw; font-size: 4.2vw; line-height: 5.04vw; }
+        .receipt-seller-mark { width: 9.92vw; height: 9.92vw; margin-right: 3.19vw; font-size: 4.87vw; }
+        .receipt-row { min-height: 9.92vw; column-gap: 2.52vw; font-size: 3.36vw; line-height: 4.2vw; }
+        .receipt-note-bottom { margin-top: 12.44vw; font-size: 2.86vw; line-height: 3.53vw; }
+        .receipt-close { top: 1.68vw; left: 1.34vw; width: 4.7vw; height: 6.05vw; font-size: 4.7vw; line-height: 5.04vw; }
+      }
       @media (max-width: 390px) { .offer-grid { grid-template-columns: calc((100vw - 25px) * .557) calc((100vw - 25px) * .443); } .offer { height: calc((100vw - 25px) * .508); } .offers { height: calc((100vw - 25px) * .508 + 60px); } }
       @media (min-width: 421px) {
         .app { padding-bottom: 2.35vw; }
