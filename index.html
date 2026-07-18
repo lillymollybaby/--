@@ -49,6 +49,7 @@
       .offer img { display: block; width: 100%; height: 100%; object-fit: cover; }
       .offer:first-child img { object-fit: contain; background: #fff; }
       .offer-missing { height: 100%; display: grid; place-items: center; text-align: center; color: #777; font-size: 13px; line-height: 18px; padding: 16px; background: linear-gradient(145deg,#d6ecf6,#e8e6dc); }
+      .bottom-bar { position: fixed; z-index: 4; right: 0; bottom: 0; left: 0; height: 87px; background: #fff; }
       .home { display: block; width: calc(100% - 30px); height: 56px; margin: 17px 15px 0; border: 0; border-radius: 11px; background: #1d83c6; color: #fff; font-size: 17px; line-height: 56px; text-align: center; text-decoration: none; box-shadow: inset 0 -1px 0 rgba(0,0,0,.12); }
       .modal-backdrop { position: fixed; inset: 0; z-index: 10; display: none; align-items: center; justify-content: center; padding: 22px; background: rgba(0,0,0,.36); }
       .modal-backdrop.visible { display: flex; }
@@ -84,6 +85,7 @@
         .offer-grid { grid-template-columns: 50vw 50vw; gap: 0; }
         .offer { height: 44.54vw; }
         .offer:first-child { border-radius: 0; }
+        .bottom-bar { height: 20.67vw; }
         .home { width: calc(100% - 8.06vw); height: 13.28vw; margin: 4.03vw 4.03vw 0; border-radius: 1.85vw; font-size: 4.03vw; line-height: 13.28vw; }
       }
     </style>
@@ -104,8 +106,8 @@
         <div class="receipt"><svg class="receipt-icon" viewBox="0 0 24 25" fill="none" aria-hidden="true"><path d="M6 2.8h8.6L19 7.2v13a1.8 1.8 0 0 1-1.8 1.8H6a1.8 1.8 0 0 1-1.8-1.8V4.6A1.8 1.8 0 0 1 6 2.8Z" stroke="currentColor" stroke-width="1.9"/><path d="M14.5 2.8v4.6H19M8 12h7M8 16h5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><div class="receipt-text"><p class="receipt-title">Показать чек об оплате</p><p class="receipt-note">Чек сохранен в сообщениях</p></div><span class="arrow" aria-hidden="true"></span></div>
       </section>
       <section class="offers card"><h2>Все предложения</h2><div class="offer-grid"><div class="offer"><img src="assets/calf-promo.jpg" alt="Мягкая игрушка Бегающий теленок" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'offer-missing',textContent:'Добавьте фото\nassets/calf-promo.jpg'}))"></div><div class="offer"><img src="assets/calf.jpg" alt="Мягкая игрушка теленок" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'offer-missing',textContent:'Добавьте фото\nassets/calf.jpg'}))"></div></div></section>
-      <a class="home" href="#" aria-label="Вернуться на Главную Kaspi.kz">Вернуться на Главную Kaspi.kz</a>
     </main>
+    <div class="bottom-bar"><a class="home" href="#" aria-label="Вернуться на Главную Kaspi.kz">Вернуться на Главную Kaspi.kz</a></div>
     <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true"><form class="modal" id="edit-form" aria-modal="true" role="dialog"><h3 id="modal-title">Изменить</h3><input id="edit-input" autocomplete="off" required><div class="modal-actions"><button type="button" id="cancel">Отмена</button><button type="submit">Сохранить</button></div></form></div>
     <script>
       const modal = document.querySelector('#modal-backdrop'); const form = document.querySelector('#edit-form'); const input = document.querySelector('#edit-input'); let activeField;
