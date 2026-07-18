@@ -80,7 +80,7 @@
       document.querySelector('#cancel').addEventListener('click', closeModal); modal.addEventListener('click', e => { if (e.target === modal) closeModal(); }); document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
       form.addEventListener('submit', e => { e.preventDefault(); const value = input.value.trim(); if (value) { document.querySelector(`#${activeField}-value`).textContent = value; localStorage.setItem(`kaspi-${activeField}`, value); } closeModal(); });
       ['seller','date'].forEach(field => { const saved = localStorage.getItem(`kaspi-${field}`); if (saved) document.querySelector(`#${field}-value`).textContent = saved; });
-      if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');
+      if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' });
     </script>
   </body>
 </html>
