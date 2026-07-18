@@ -59,12 +59,12 @@
       .modal input:focus { border-color: #1d83c6; box-shadow: 0 0 0 2px rgba(29,131,198,.13); }
       .modal-actions { display: flex; justify-content: flex-end; gap: 20px; margin-top: 19px; }
       .modal-actions button { border: 0; background: none; padding: 5px 0; color: #1d83c6; font-size: 15px; font-weight: 500; cursor: pointer; }
-      .receipt-screen { position: fixed; z-index: 20; inset: 0; display: none; overflow-y: auto; background: #f8f8f8; padding: 40px 34px; }
+      .receipt-screen { position: fixed; z-index: 20; inset: 0; display: none; overflow-y: auto; background: #f8f8f8; padding: 116px 31px 68px; }
       .receipt-screen.visible { display: block; }
       .receipt-sheet { position: relative; width: 100%; min-height: 925px; overflow: hidden; background: #fff; box-shadow: 0 0 22px rgba(0,0,0,.03); }
-      .receipt-sheet::before, .receipt-sheet::after { position: absolute; z-index: 2; right: 0; left: 0; height: 8px; content: ''; background: radial-gradient(circle at 5px -1px, transparent 5px, #f8f8f8 5.5px) 0 0 / 10px 8px repeat-x; }
+      .receipt-sheet::before, .receipt-sheet::after { position: absolute; z-index: 2; right: 0; left: 0; height: 9px; content: ''; background: radial-gradient(circle at 5px 0, #f8f8f8 0 4.5px, transparent 4.8px) 0 0 / 10px 9px repeat-x; pointer-events: none; }
       .receipt-sheet::before { top: 0; }
-      .receipt-sheet::after { bottom: 0; transform: rotate(180deg); }
+      .receipt-sheet::after { bottom: 0; background: radial-gradient(circle at 5px 9px, #f8f8f8 0 4.5px, transparent 4.8px) 0 0 / 10px 9px repeat-x; }
       .receipt-logo { height: 171px; padding: 53px 30px 0; }
       .receipt-logo-mark { width: 77px; height: 77px; overflow: hidden; background: #fff; }
       .receipt-logo-mark img { display: block; width: 100%; height: 100%; transform: scale(1.3); }
@@ -78,11 +78,16 @@
       .receipt-row .label { color: #858585; }
       .receipt-row .value { text-align: right; }
       .receipt-note-bottom { margin: 74px 0 0; color: #8a8a8a; font-size: 17px; line-height: 21px; text-align: center; }
-      .receipt-close { position: fixed; top: 10px; left: 8px; z-index: 21; width: 28px; height: 36px; border: 0; background: transparent; color: #9d9d9d; font-size: 28px; line-height: 30px; cursor: pointer; }
+      .receipt-close, .receipt-share { position: fixed; top: 19px; z-index: 21; width: 36px; height: 36px; padding: 0; border: 0; background: transparent; color: #303030; cursor: pointer; }
+      .receipt-close { left: 27px; }
+      .receipt-close::before, .receipt-close::after { position: absolute; top: 17px; left: 2px; width: 33px; height: 3px; border-radius: 2px; background: currentColor; content: ''; transform: rotate(45deg); }
+      .receipt-close::after { transform: rotate(-45deg); }
+      .receipt-share { right: 27px; }
+      .receipt-share svg { display: block; width: 31px; height: 31px; margin: auto; }
       @media (max-width: 594px) {
-        .receipt-screen { padding: 6.72vw 5.71vw; }
+        .receipt-screen { padding: 19.5vw 5.21vw 11.43vw; }
         .receipt-sheet { min-height: 155.46vw; }
-        .receipt-sheet::before, .receipt-sheet::after { height: 1.34vw; background-size: 1.68vw 1.34vw; }
+        .receipt-sheet::before, .receipt-sheet::after { height: 1.51vw; background-size: 1.68vw 1.51vw; }
         .receipt-logo { height: 28.74vw; padding: 8.91vw 5.04vw 0; }
         .receipt-logo-mark { width: 12.94vw; height: 12.94vw; }
         .receipt-status { height: 24.2vw; padding: 4.2vw 5.04vw; }
@@ -93,7 +98,11 @@
         .receipt-seller-mark { width: 9.92vw; height: 9.92vw; margin-right: 3.19vw; font-size: 4.87vw; }
         .receipt-row { min-height: 9.92vw; column-gap: 2.52vw; font-size: 3.36vw; line-height: 4.2vw; }
         .receipt-note-bottom { margin-top: 12.44vw; font-size: 2.86vw; line-height: 3.53vw; }
-        .receipt-close { top: 1.68vw; left: 1.34vw; width: 4.7vw; height: 6.05vw; font-size: 4.7vw; line-height: 5.04vw; }
+        .receipt-close, .receipt-share { top: 3.19vw; width: 6.05vw; height: 6.05vw; }
+        .receipt-close { left: 4.54vw; }
+        .receipt-close::before, .receipt-close::after { top: 2.86vw; left: .34vw; width: 5.55vw; height: .5vw; }
+        .receipt-share { right: 4.54vw; }
+        .receipt-share svg { width: 5.21vw; height: 5.21vw; }
       }
       @media (max-width: 390px) { .offer-grid { grid-template-columns: calc((100vw - 25px) * .557) calc((100vw - 25px) * .443); } .offer { height: calc((100vw - 25px) * .508); } .offers { height: calc((100vw - 25px) * .508 + 60px); } }
       @media (min-width: 421px) {
@@ -145,7 +154,7 @@
     </main>
     <div class="bottom-bar"><a class="home" href="#" aria-label="Вернуться на Главную Kaspi.kz">Вернуться на Главную Kaspi.kz</a></div>
     <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true"><form class="modal" id="edit-form" aria-modal="true" role="dialog"><h3 id="modal-title">Изменить</h3><input id="edit-input" autocomplete="off" required><div class="modal-actions"><button type="button" id="cancel">Отмена</button><button type="submit">Сохранить</button></div></form></div>
-    <section class="receipt-screen" id="receipt-screen" aria-label="Чек об оплате"><button class="receipt-close" id="close-receipt" type="button" aria-label="Закрыть чек">‹</button><article class="receipt-sheet"><header class="receipt-logo"><div class="receipt-logo-mark"><img src="assets/logo_300.png" alt="Kaspi"></div></header><section class="receipt-status"><p class="receipt-status-title">Оплата совершена</p><p class="receipt-status-amount" id="receipt-amount">100 ₸</p></section><section class="receipt-info"><div class="receipt-seller"><span class="receipt-seller-mark">И</span><span id="receipt-seller">ИП Бигул</span></div><div class="receipt-row"><span class="label">№ чека</span><span class="value">QR16566227395</span></div><div class="receipt-row"><span class="label">ИИН/БИН продавца</span><span class="value">710701403337</span></div><div class="receipt-row"><span class="label">ФИО покупателя</span><span class="value">Dastan A.</span></div><div class="receipt-row"><span class="label">Дата и время<br>по Астане</span><span class="value" id="receipt-date">18.07.2026 01:50</span></div><div class="receipt-row"><span class="label">Оплачено</span><span class="value">с Kaspi Gold</span></div><div class="receipt-row"><span class="label">Адрес</span><span class="value">г. Бесагаш, райымбека, 57</span></div><p class="receipt-note-bottom">Чек не является фискальным</p></section></article></section>
+    <section class="receipt-screen" id="receipt-screen" aria-label="Чек об оплате"><button class="receipt-close" id="close-receipt" type="button" aria-label="Закрыть чек"></button><button class="receipt-share" id="share-receipt" type="button" aria-label="Поделиться чеком"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="23.5" cy="7" r="3.5" stroke="currentColor" stroke-width="2.8"/><circle cx="8.5" cy="16" r="3.5" stroke="currentColor" stroke-width="2.8"/><circle cx="23.5" cy="25" r="3.5" stroke="currentColor" stroke-width="2.8"/><path d="m11.7 14.3 8.5-5M11.7 17.7l8.5 5" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg></button><article class="receipt-sheet"><header class="receipt-logo"><div class="receipt-logo-mark"><img src="assets/logo_300.png" alt="Kaspi"></div></header><section class="receipt-status"><p class="receipt-status-title">Оплата совершена</p><p class="receipt-status-amount" id="receipt-amount">100 ₸</p></section><section class="receipt-info"><div class="receipt-seller"><span class="receipt-seller-mark">И</span><span id="receipt-seller">ИП Бигул</span></div><div class="receipt-row"><span class="label">№ чека</span><span class="value">QR16566227395</span></div><div class="receipt-row"><span class="label">ИИН/БИН продавца</span><span class="value">710701403337</span></div><div class="receipt-row"><span class="label">ФИО покупателя</span><span class="value">Dastan A.</span></div><div class="receipt-row"><span class="label">Дата и время<br>по Астане</span><span class="value" id="receipt-date">18.07.2026 01:50</span></div><div class="receipt-row"><span class="label">Оплачено</span><span class="value">с Kaspi Gold</span></div><div class="receipt-row"><span class="label">Адрес</span><span class="value">г. Бесагаш, райымбека, 57</span></div><p class="receipt-note-bottom">Чек не является фискальным</p></section></article></section>
     <script>
       const modal = document.querySelector('#modal-backdrop'); const form = document.querySelector('#edit-form'); const input = document.querySelector('#edit-input'); let activeField;
       const formatAmount = value => `${Number(String(value).replace(/[^\d]/g, '') || 0).toLocaleString('ru-RU')} ₸`;
@@ -158,6 +167,7 @@
       const receiptScreen = document.querySelector('#receipt-screen');
       document.querySelector('#show-receipt').addEventListener('click', () => { document.querySelector('#receipt-amount').textContent = document.querySelector('#amount-value').textContent; document.querySelector('#receipt-seller').textContent = document.querySelector('#seller-value').textContent; document.querySelector('#receipt-date').textContent = receiptDate(document.querySelector('#date-value').textContent); receiptScreen.classList.add('visible'); });
       document.querySelector('#close-receipt').addEventListener('click', () => receiptScreen.classList.remove('visible'));
+      document.querySelector('#share-receipt').addEventListener('click', async () => { const data = { title: 'Чек об оплате', text: `${document.querySelector('#receipt-amount').textContent} · ${document.querySelector('#receipt-seller').textContent}` }; if (navigator.share) await navigator.share(data); else if (navigator.clipboard) await navigator.clipboard.writeText(`${data.title}: ${data.text}`); });
       if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' });
     </script>
   </body>
