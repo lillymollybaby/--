@@ -1,9 +1,17 @@
 {
   "name": "Kaspi QR",
   "short_name": "Kaspi QR",
-  "start_url": "./",
+  "id": "./",
+  "start_url": "./?source=pwa",
+  "scope": "./",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
   "background_color": "#f5f5f5",
   "theme_color": "#f5f5f5",
-  "lang": "ru"
+  "lang": "ru",
+  "icons": [
+    { "src": "assets/logo_150.png", "sizes": "150x150", "type": "image/png", "purpose": "any" },
+    { "src": "assets/logo_300.png", "sizes": "302x302", "type": "image/png", "purpose": "any maskable" }
+  ]
 }

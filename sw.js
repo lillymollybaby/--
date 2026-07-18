@@ -1,5 +1,5 @@
-const CACHE = 'kaspi-qr-v3';
-const ASSETS = ['./', './index.html', './manifest.webmanifest', './assets/галочка.svg', './assets/calf-promo.jpg', './assets/calf.jpg'];
+const CACHE = 'kaspi-qr-v4';
+const ASSETS = ['./', './index.html', './manifest.webmanifest', './assets/галочка.svg', './assets/logo_150.png', './assets/logo_300.png', './assets/calf-promo.jpg', './assets/calf.jpg'];
 
 self.addEventListener('install', event => event.waitUntil(
   caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting())
