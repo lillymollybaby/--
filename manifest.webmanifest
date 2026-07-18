@@ -1,0 +1,9 @@
+{
+  "name": "Kaspi QR",
+  "short_name": "Kaspi QR",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#f5f5f5",
+  "lang": "ru"
+}
