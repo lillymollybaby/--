@@ -21,7 +21,7 @@
       * { box-sizing: border-box; }
       body { margin: 0; min-width: 320px; min-height: 100vh; background: #f5f5f5; }
       button { font: inherit; }
-      .app { width: 100%; max-width: 420px; min-height: 100vh; margin: 0 auto; overflow: hidden; padding-bottom: 14px; }
+      .app { width: 100%; min-height: 100vh; margin: 0 auto; overflow: hidden; padding-bottom: 14px; }
       .card { background: #fff; border-radius: 0 0 14px 14px; }
       .success { height: 313px; display: flex; flex-direction: column; align-items: center; padding-top: 18px; }
       .brand { margin: 0; font-size: 18px; line-height: 21px; font-weight: 700; }
@@ -47,6 +47,7 @@
       .offer { height: 189px; overflow: hidden; background: #ececec; }
       .offer:first-child { border-radius: 10px 10px 0 0; }
       .offer img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .offer:first-child img { object-fit: contain; background: #fff; }
       .offer-missing { height: 100%; display: grid; place-items: center; text-align: center; color: #777; font-size: 13px; line-height: 18px; padding: 16px; background: linear-gradient(145deg,#d6ecf6,#e8e6dc); }
       .home { display: block; width: calc(100% - 30px); height: 56px; margin: 17px 15px 0; border: 0; border-radius: 11px; background: #1d83c6; color: #fff; font-size: 17px; line-height: 56px; text-align: center; text-decoration: none; box-shadow: inset 0 -1px 0 rgba(0,0,0,.12); }
       .modal-backdrop { position: fixed; inset: 0; z-index: 10; display: none; align-items: center; justify-content: center; padding: 22px; background: rgba(0,0,0,.36); }
@@ -58,6 +59,33 @@
       .modal-actions { display: flex; justify-content: flex-end; gap: 20px; margin-top: 19px; }
       .modal-actions button { border: 0; background: none; padding: 5px 0; color: #1d83c6; font-size: 15px; font-weight: 500; cursor: pointer; }
       @media (max-width: 390px) { .offer-grid { grid-template-columns: calc((100vw - 25px) * .557) calc((100vw - 25px) * .443); } .offer { height: calc((100vw - 25px) * .508); } .offers { height: calc((100vw - 25px) * .508 + 60px); } }
+      @media (min-width: 421px) {
+        .app { padding-bottom: 2.35vw; }
+        .card { border-radius: 0 0 2.35vw 2.35vw; }
+        .success { height: 75.46vw; padding-top: 6.22vw; }
+        .brand { font-size: 4.03vw; line-height: 4.7vw; }
+        .check { width: 15.13vw; height: 15.13vw; margin-top: 10.1vw; }
+        .thanks { margin-top: 9.07vw; font-size: 6.05vw; line-height: 7vw; letter-spacing: -.05vw; }
+        .amount { margin-top: 5.54vw; font-size: 10.08vw; line-height: 11.8vw; letter-spacing: .07vw; }
+        .purchase { margin-top: 3.19vw; border-radius: 2.35vw; }
+        .details { height: 18.99vw; }
+        .detail { padding: 4.7vw 2.52vw 2vw; }
+        .detail + .detail { padding-left: 3.53vw; }
+        .detail-label { font-size: 3.81vw; line-height: 4.54vw; }
+        .detail-value { margin-top: .34vw; font-size: 4.03vw; line-height: 4.7vw; }
+        .receipt { height: 18.15vw; padding: 0 2.52vw 0 2.86vw; }
+        .receipt-icon { width: 3.7vw; height: 4.03vw; }
+        .receipt-text { margin-left: 3.19vw; }
+        .receipt-title { font-size: 4.03vw; line-height: 4.7vw; }
+        .receipt-note { margin-top: .5vw; font-size: 3.03vw; line-height: 3.53vw; }
+        .arrow { width: 1.68vw; height: 1.68vw; border-width: .34vw; }
+        .offers { height: 59.66vw; margin-top: 2.02vw; border-radius: 2.35vw 2.35vw 0 0; padding-top: 6.22vw; }
+        .offers h2 { margin: 0 0 2.86vw 4.54vw; font-size: 4.03vw; line-height: 4.7vw; }
+        .offer-grid { grid-template-columns: 50vw 50vw; gap: 0; }
+        .offer { height: 44.54vw; }
+        .offer:first-child { border-radius: 0; }
+        .home { width: calc(100% - 8.06vw); height: 13.28vw; margin: 4.03vw 4.03vw 0; border-radius: 1.85vw; font-size: 4.03vw; line-height: 13.28vw; }
+      }
     </style>
   </head>
   <body>
